@@ -1,0 +1,64 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+  - Softskills
+    use_entities: [ ]
+  - is_bot
+  - how_created
+  - MINT_Studierende
+  - ask_for_group
+  - Geschlecht_weiblich
+
+entities:
+  - skills
+  - personally
+  - problems_dealing
+  - public
+
+slots:
+  skills:
+    type: unfeaturized
+    auto_fill: false
+  personally:
+    type: unfeaturized
+      auto_fill: false
+  problems_dealing:
+    type: unfeaturized
+      auto_fill: false
+  public:
+    type: unfeaturized
+      auto_fill: false
+
+responses:
+  utter_i_am_a_bot:
+    - text: Ja ich bin ein Bot und bin entwickelt mit Rasa.
+  utter_created_by_steadforce:
+    - text: Meine Entwickler waren die Mitarbeiter von Steadforce
+  utter_confirm_group:
+    - buttons:
+        - payload: MINT_Studierende
+          title: MINT-Student
+        - payload: Geschlecht_weiblich
+          title: Geschlecht - weiblich
+      text: Zur welche Gruppe der Studierenden gehörst Du?
+  utter_ask_skills:
+    - text: "Wie schätzt Du folgenden Fähigkeiten mit Skala von 1 bis 5 ein?"
+        - text: "Kommunikationsfähigkeit, Organisationsfähigkeit und Teamfähigkeit"
+  utter_ask_personally:
+    - text: "Wie schätzt Du folgenden persönliche Fähigkeiten mit Skala von 1 bis 5 ein?"
+        - text: "Lernbereitschaft, Neugier, Selbstdisziplin und analytisches Denkenvermögen"
+  utter_ask_problems_dealing:
+    - text: "Wie schätzt Du Deine Kompetenz in folgenden Situationen mit Skala von 1 bis 5 ein?"
+        - text: "Problemlösungskompetenz, Kritikfähigkeit, Stressresistenz"
+  utter_ask_public:
+    - text: "Wie schätzt Du folgenden Fähigkeiten mit Skala von 1 bis 5 ein?"
+        - text: "Integrationsbereitschaft, Präsentationsskills und Empathie"
+  utter_thank_for_choosing:
+    - text: Danke für den Gruppenwahl!
+
+actions:
+  - utter_i_am_a_bot
+  - utter_created_by_steadforce
+  - utter_confirm_group
+  - utter_thank_for_choosing
